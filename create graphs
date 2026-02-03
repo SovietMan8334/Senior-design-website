@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nitrate History</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Nitrate Concentration Over Time</h2>
+<canvas id="nitrateChart" width="600" height="300"></canvas>
+
+<script>
+  const ctx = document.getElementById('nitrateChart').getContext('2d');
+
+  const nitrateChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+      datasets: [{
+        label: 'Nitrate (mg/L)',
+        data: [3.8, 4.0, 4.1, 4.3, 4.2],
+        borderWidth: 2
+      }]
+    }
+  });
+</script>
+
+</body>
+</html>
