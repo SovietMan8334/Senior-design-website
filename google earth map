@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nitrate Sensor Dashboard</title>
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Nitrate Monitoring – Lake Deployment</h2>
+<div id="map"></div>
+
+<script>
+  function initMap() {
+    const lakeLocation = { lat: 41.941343, lng: -88.761408 }; // CHANGE THIS
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 12,
+      center: lakeLocation,
+      mapTypeId: "satellite"   // THIS is the Google Earth look
+    });
+
+    const marker = new google.maps.Marker({
+      position: lakeLocation,
+      map: map,
+      title: "Nitrate Sensor #1"
+    });
+  }
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+  async
+  defer>
+</script>
+
+</body>
+</html>
