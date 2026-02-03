@@ -1,0 +1,38 @@
+<script>
+  function initMap() {
+    const lakeLocation = { lat: 41.941343, lng: -88.761408 };
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 12,
+      center: lakeLocation,
+      mapTypeId: "satellite"
+    });
+
+    const infoContent = `
+      <div>
+        <h3>Nitrate Sensor #1</h3>
+        <p><b>Nitrate:</b> 4.2 mg/L</p>
+        <p><b>Temperature:</b> 18.5 °C</p>
+        <button onclick="showGraph()">View History</button>
+      </div>
+    `;
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: infoContent
+    });
+
+    const marker = new google.maps.Marker({
+      position: lakeLocation,
+      map: map,
+      title: "Nitrate Sensor #1"
+    });
+
+    marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+    });
+  }
+
+  function showGraph() {
+    window.open("graph.html", "_blank");
+  }
+</script>
